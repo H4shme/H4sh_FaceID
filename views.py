@@ -34,4 +34,24 @@ class EnrollView(tk.Frame):
         self._tick()
 
     def _build_ui(self):
-        pass # Faut j'me tire j'reprends après
+        ttk.Label(self, text="Create a new profile",
+                  font=("Helvetica", 16, "bold")).pack(pady=(16,4))
+        ttk.Label(self, text="Enter your name and look at the camera",
+                  foreground="gray").pack(pady=(0,12))
+        
+
+
+        name_frame=ttk.Frame(self)
+        name_frame.pack()
+        ttk.Label(name_frame, text="Name : ").pack(side="left", padx=(0,8))
+        self._name_var=tk.StringVar()
+        self._name_entry=ttk.Entry(name_frame, textvariable=self._name_var, width=22)
+        self._name_entry.pack(side="left")
+
+        # Video 
+        self._video=VideoFrame(self, CAM_WIDTH//2,CAM_HEIGHT//2)
+        self._video.pack(pady=12)
+
+                
+
+
